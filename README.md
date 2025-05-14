@@ -15,19 +15,19 @@ This project implements a real-time image processing pipeline using **Apache Kaf
 2. Click **"Create bucket"** and give it a unique name (`captcha-mapreduce-data`).
 3. Choose the AWS Region closest to you.
 
-<img width="503" alt="Screenshot 2025-04-10 at 16 20 50" src="https://github.com/user-attachments/assets/e1852a10-6c68-43d9-b0b1-fde1e1daab78" />
+<img width="503" alt="432336316-e1852a10-6c68-43d9-b0b1-fde1e1daab78" src="https://github.com/user-attachments/assets/bb386902-eb63-4d83-86c5-ba8681cb45c6" />
 
 4. Leave default settings or disable **Block all public access** if needed (not recommended for sensitive data).
 5. Upload test images or use your Kafka producer to send image metadata pointing to this bucket.
 
-<img width="503" alt="Screenshot 2025-04-10 at 16 05 21" src="https://github.com/user-attachments/assets/3796f5ba-7816-42c4-9ce9-f429478c9265" />
+<img width="503" alt="432333919-3796f5ba-7816-42c4-9ce9-f429478c9265" src="https://github.com/user-attachments/assets/7d713c27-bca3-4487-8c46-6bb06e2ab135" />
 
 ### 2. Launch & Configure EC2 Instance
 
 1. Go to the [EC2 Console](https://eu-north-1.console.aws.amazon.com/ec2/home?region=eu-north-1#Instances).
 2. Launch a new instance using an **Ubuntu** or **Amazon Linux 2 AMI**.
 
-<img width="503" alt="Screenshot 2025-04-10 at 16 23 13" src="https://github.com/user-attachments/assets/039f419a-7e05-4795-81e9-52dd1bf1ac2c" />
+<img width="503" alt="432338224-039f419a-7e05-4795-81e9-52dd1bf1ac2c" src="https://github.com/user-attachments/assets/f91b1864-0529-40dd-aee1-54ebb8d61c74" />
 
 3. Choose a free-tier eligible instance type (`t3.micro`).
 4. Under **Key pair**, create or select one to SSH into your instance.
@@ -37,7 +37,7 @@ This project implements a real-time image processing pipeline using **Apache Kaf
    - Port `7700` (MeiliSearch)
    - Port `5000` or `8888` (Flask/Streamlit dashboard if needed)
 
-<img width="503" alt="Screenshot 2025-04-10 at 16 24 24" src="https://github.com/user-attachments/assets/68f27f73-1aac-4470-a84e-472a78c1e413" />
+<img width="503" alt="432338630-68f27f73-1aac-4470-a84e-472a78c1e413" src="https://github.com/user-attachments/assets/55f98345-bf0a-4554-addd-a066816d9125" />
 
 ---
 
@@ -49,7 +49,7 @@ This project implements a real-time image processing pipeline using **Apache Kaf
 
 ```bash
 chmod 400 opencv-key.pem
-ssh -i "opencv-key.pem" ec2-user@ip-13.51.6.137
+ssh -i "opencv-key.pem" ec2-user@ip-13.51.x.xxx
 ```
 
 ---
@@ -61,13 +61,13 @@ ssh -i "opencv-key.pem" ec2-user@ip-13.51.6.137
    - **Release version**: EMR 6.x
    - **Applications**: Hadoop (required), Spark (optional)
   
-<img width="503" alt="Screenshot 2025-04-12 at 10 35 58" src="https://github.com/user-attachments/assets/f0638d01-816d-46e4-b186-38314e2be360" />
+<img width="503" alt="433035630-f0638d01-816d-46e4-b186-38314e2be360" src="https://github.com/user-attachments/assets/f4d69bf1-484d-4481-a23d-5ba048b419d0" />
 
    - **Cluster type**: EMR on EC2
    - **Instance count**: 1 Master + 1 Core
    - **Instance type**: `m5.xlarge` or any available option
 
-<img width="503" alt="Screenshot 2025-04-12 at 10 37 02" src="https://github.com/user-attachments/assets/45fd6e5a-ad3f-4bc4-945b-6a7e97f3c909" />
+<img width="503" alt="433035640-45fd6e5a-ad3f-4bc4-945b-6a7e97f3c909" src="https://github.com/user-attachments/assets/dda0ba8d-a884-4abc-8435-58ae6ff5adb9" />
 
 3. Set **EC2 key pair** to the one you created previously (e.g., `opencv-key.pem`).
 4. Under **Cluster logs**, choose your existing bucket (`captcha-mapreduce-data`) or create one for storing job logs.
@@ -77,7 +77,7 @@ ssh -i "opencv-key.pem" ec2-user@ip-13.51.6.137
 
 ```bash
 chmod 400 /Users/borisborovcanin/Desktop/opencv-key.pem
-ssh -i /Users/borisborovcanin/Desktop/opencv-key.pem hadoop@ec2-16-170-228-222.eu-north-1.compute.amazonaws.com
+ssh -i /Users/borisborovcanin/Desktop/opencv-key.pem hadoop@ec2-16-xxx-xxx-xxx.eu-north-1.compute.amazonaws.com
 ```
 
 #### Upload Data and Scripts to HDFS
