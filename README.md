@@ -11,7 +11,7 @@ This project implements a real-time image processing pipeline using **Apache Kaf
 
 ### 1. Configure AWS S3 (Image Storage)
 
-1. Go to the [S3 Console](https://eu-north-1.console.aws.amazon.com/s3/home?region=eu-north-1#).
+1. Go to the [S3 Console](https://aws.amazon.com/console/).
 2. Click **"Create bucket"** and give it a unique name (`captcha-mapreduce-data`).
 3. Choose the AWS Region closest to you.
 
@@ -24,7 +24,7 @@ This project implements a real-time image processing pipeline using **Apache Kaf
 
 ### 2. Launch & Configure EC2 Instance
 
-1. Go to the [EC2 Console](https://eu-north-1.console.aws.amazon.com/ec2/home?region=eu-north-1#Instances).
+1. Go to the [EC2 Console](https://aws.amazon.com/console/).
 2. Launch a new instance using an **Ubuntu** or **Amazon Linux 2 AMI**.
 
 <img width="503" alt="432338224-039f419a-7e05-4795-81e9-52dd1bf1ac2c" src="https://github.com/user-attachments/assets/f91b1864-0529-40dd-aee1-54ebb8d61c74" />
@@ -56,7 +56,7 @@ ssh -i "opencv-key.pem" ec2-user@ip-13.51.x.xxx
 
 ### 4.EMR Cluster Configuration
 
-1. Go to the [Amazon EMR Console](https://eu-north-1.console.aws.amazon.com/emr/home?region=eu-north-1#/clusters).
+1. Go to the [Amazon EMR Console](https://aws.amazon.com/console/).
 2. Click **"Create Cluster"**, then choose the following settings:
    - **Release version**: EMR 6.x
    - **Applications**: Hadoop (required), Spark (optional)
@@ -183,7 +183,7 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 - Indexed fields: `file_name`, `timestamp`, `size_kb`.
 
 ```python
-meili_client = meilisearch.Client('http://127.0.0.1:7700')
+meili_client = meilisearch.Client('http://127.0.0.1:xxxx')
 index = meili_client.index('image_metadata')
 index.add_documents([metadata])
 ```
@@ -216,7 +216,7 @@ Displays a preview of up to 5 processed images using `matplotlib`.
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/ibu-fenms512/2025-group7.git 
+git clone https://github.com/bb00S/realtime-image-pipeline
 ```
 
 ### 2. Install Python Dependencies
@@ -228,7 +228,7 @@ pip install boto3 opencv-python confluent_kafka pandas matplotlib tabulate meili
 ### 3. Start MeiliSearch
 
 ```bash
-./meilisearch --http-addr '127.0.0.1:7700'
+./meilisearch --http-addr '127.0.0.1:xxxx'
 ```
 
 ### 4. Start Kafka Locally or via Docker
