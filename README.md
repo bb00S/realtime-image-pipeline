@@ -252,9 +252,4 @@ python consumer.py
 - MeiliSearch admin key can be stored in environment variables.
 - Consider using Docker to containerize the pipeline.
 
----
-
-## Author
-
-- **Boris Borovčanin**
 
